@@ -9,7 +9,14 @@ from typing import List
 # - It follows precise instructions well (avoids hallucinations or restructuring content).
 # - It preserves formatting better than Claude/Gemini in similar tasks.
 # - It's fast and cost-effective while still being highly capable.
+
+# I was debating between Haiku and 4o-mini but ultimately went with 4o-mini because of the benchmarks
 OPENAI_API_KEY = "your-openai-api-key"  # Replace with your actual OpenAI API key
+
+# Justification for using GPT-4o-mini based on benchmarks:
+# 1. Quality and Performance: GPT-4o-mini has a quality index score of 73, ensuring high accuracy in document sectioning.
+# 2. Latency and Speed: With a low latency of 0.49 seconds and an output speed of 85.4 tokens per second, GPT-4o-mini processes documents quickly and efficiently.
+# 3. Cost-Effectiveness: GPT-4o-mini is highly cost-effective, with a cost of $0.26 per million tokens, providing excellent performance at a low cost.
 LLM_MODEL = "gpt-4o-mini"  
 
 def call_gpt(prompt: str) -> List[str]:
