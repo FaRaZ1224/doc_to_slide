@@ -101,3 +101,36 @@ def split_document(document: str, target_slides: int) -> List[str]:
 
     return call_gpt(prompt)
 
+if __name__ == "__main__":
+    print("Welcome to the Document Splitter!")
+    print("\nPlease paste your markdown document below (press Ctrl+D or Ctrl+Z when finished):")
+    
+    # Collect multiline input until EOF (Ctrl+D/Ctrl+Z)
+    document_lines = []
+    try:
+        while True:
+            line = input()
+            document_lines.append(line)
+    except EOFError:
+        document = "\n".join(document_lines)
+    
+    # Get number of slides
+    while True:
+        try:
+            target_slides = int(input("\nHow many slides would you like (1-50)? "))
+            if 1 <= target_slides <= 50:
+                break
+            print("Please enter a number between 1 and 50.")
+        except ValueError:
+            print("Please enter a valid number.")
+    
+    print("\nProcessing your document...")
+    try:
+        slides = split_document(document, target_slides)
+        print("\nHere are your slides:\n")
+        for i, slide in enumerate(slides, 1):
+            print(f"=== Slide {i} ===")
+            print(slide)
+            print()
+    except Exception as e:
+        print(f"An error occurred: {str(e)}")
