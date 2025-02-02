@@ -17,3 +17,10 @@ A Python tool that splits markdown documents into presentation-ready sections us
    - Or use environment variables (recommended)
 
 ## Usage 
+ 
+1. **Paste the document**  
+2. **Press**:  
+   - **Ctrl+D (Mac/Linux)**  
+   - **Ctrl+Z (Windows)**  
+   _(This signals EOF, letting the script know you're done entering text.)_  
+3. **Enter the number of slides** (e.g., `3`)  
